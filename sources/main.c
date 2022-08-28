@@ -55,6 +55,12 @@ int	*clue_init(char *str)
 	return (ret);
 }
 
+int	ft_put_error(void)
+{
+	ft_putstr("Error\n");
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	int	puzzle[4][4];
