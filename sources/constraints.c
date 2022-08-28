@@ -66,7 +66,7 @@ int	check_col_down(int puzzle[4][4], int pos, int clue[16])
 			i--;
 		}
 		if (clue[4 + (pos % 4)] != visible)
-			return (-1);
+			return (1);
 	}
 	return (0);
 }
@@ -103,18 +103,19 @@ int	check_row_right(int puzzle[4][4], int pos, int clue[16])
 	int	max;
 	int	visible;
 
-	i = 4;
+	i = 3;
 	max = 0;
 	visible = 0;
 	if (pos % 4 == 3)
 	{
-		while (--i > 0)
+		while (i > 0)
 		{
 			if (puzzle[pos / 4][i] > max)
 			{
 				max = puzzle[pos / 4][i];
 				visible++;
 			}
+			i--;
 		}
 		if (clue[12 + pos / 4] != visible)
 			return (1);
