@@ -55,9 +55,12 @@ int	*clue_init(char *str)
 	return (ret);
 }
 
-int	ft_put_error(void)
+int	ft_put_error(int flag)
 {
-	ft_putstr("Error\n");
+	if (flag == 0)
+		ft_putstr("Error\n");
+	else
+		ft_putstr("No solution\n");
 	return (0);
 }
 
@@ -67,13 +70,13 @@ int	main(int argc, char **argv)
 	int	*clue;
 
 	if (argc != 2)
-		return (ft_put_error());
+		return (ft_put_error(0));
 	clue = clue_init(argv[1]);
 	if (clue == NULL)
-		return (ft_put_error());
+		return (ft_put_error(0));
 	if (solution(puzzle, clue, 0) == 1)
 		display_solution(puzzle);
 	else
-		ft_put_error();
+		ft_put_error(1);
 	return (0);
 }
