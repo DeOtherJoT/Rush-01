@@ -73,7 +73,10 @@ int	main(int argc, char **argv)
 		return (ft_put_error(0));
 	clue = clue_init(argv[1]);
 	if (clue == NULL)
+	{
+		ft_putstr("here\n");
 		return (ft_put_error(0));
+	}
 	if (solution(puzzle, clue, 0) == 1)
 		display_solution(puzzle);
 	else
