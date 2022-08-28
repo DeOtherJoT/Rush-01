@@ -14,7 +14,7 @@ void	display_solution(int puzzle[4][4])
 			ft_putnbr(puzzle[i][j]);
 			ft_putchar(' ');
 		}
-		ft_puchar('\n');
+		ft_putchar('\n');
 	}
 }
 
@@ -40,7 +40,7 @@ int	*clue_init(char *str)
 {
 	int		i;
 	int		*ret;
-	char	*temp_split;
+	char	**temp_split;
 
 	temp_split = ft_split(str, ' ');
 	if (check_split(temp_split) == -1)
@@ -55,7 +55,7 @@ int	*clue_init(char *str)
 	return (ret);
 }
 
-int	main(int argc, char *argv)
+int	main(int argc, char **argv)
 {
 	int	puzzle[4][4];
 	int	*clue;

@@ -21,7 +21,6 @@ char	*get_word(char *str, char sep)
 {
 	char	*ret;
 	int		i;
-	int		j;
 
 	i = 0;
 	while (str[i] != sep)
