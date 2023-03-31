@@ -12,7 +12,8 @@ void	display_solution(int puzzle[4][4])
 		while (++j < 4)
 		{
 			ft_putnbr(puzzle[i][j]);
-			ft_putchar(' ');
+			if (j < 3)
+				ft_putchar(' ');
 		}
 		ft_putchar('\n');
 	}
@@ -78,5 +79,6 @@ int	main(int argc, char **argv)
 		display_solution(puzzle);
 	else
 		ft_put_error(1);
+	system("leaks rush-01");
 	return (0);
 }

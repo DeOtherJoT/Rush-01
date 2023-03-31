@@ -19,7 +19,7 @@ int	check_double(int puzzle[4][4], int pos, int num)
 	return (0);
 }
 
-int	check_col_up(int puzzle[4][4], int pos, int clue[16])
+int	check_top(int puzzle[4][4], int pos, int clue[16])
 {
 	int	i;
 	int	max;
@@ -45,7 +45,7 @@ int	check_col_up(int puzzle[4][4], int pos, int clue[16])
 	return (0);
 }
 
-int	check_col_down(int puzzle[4][4], int pos, int clue[16])
+int	check_bottom(int puzzle[4][4], int pos, int clue[16])
 {
 	int	i;
 	int	max;
@@ -71,7 +71,7 @@ int	check_col_down(int puzzle[4][4], int pos, int clue[16])
 	return (0);
 }
 
-int	check_row_left(int puzzle[4][4], int pos, int clue[16])
+int	check_left(int puzzle[4][4], int pos, int clue[16])
 {
 	int	i;
 	int	max;
@@ -97,7 +97,7 @@ int	check_row_left(int puzzle[4][4], int pos, int clue[16])
 	return (0);
 }
 
-int	check_row_right(int puzzle[4][4], int pos, int clue[16])
+int	check_right(int puzzle[4][4], int pos, int clue[16])
 {
 	int	i;
 	int	max;
@@ -108,7 +108,7 @@ int	check_row_right(int puzzle[4][4], int pos, int clue[16])
 	visible = 0;
 	if (pos % 4 == 3)
 	{
-		while (i > 0)
+		while (i >= 0)
 		{
 			if (puzzle[pos / 4][i] > max)
 			{
@@ -117,7 +117,7 @@ int	check_row_right(int puzzle[4][4], int pos, int clue[16])
 			}
 			i--;
 		}
-		if (clue[12 + pos / 4] != visible)
+		if (clue[12 + (pos / 4)] != visible)
 			return (1);
 	}
 	return (0);

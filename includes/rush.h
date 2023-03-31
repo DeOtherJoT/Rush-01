@@ -9,16 +9,20 @@ void	display_solution(int puzzle[4][4]);
 int		check_split(char **arr);
 int		*clue_init(char *str);
 
+// Init
+int		**puzzle_init(void);
+void	puzzle_del(int **puzzle);
+
 // Solution
-int		check_case(int puzzle[4][4], int pos, int clue[16]);
+int		check_case(int puzzle[4][4], int pos, int clue[16], int value);
 int		solution(int puzzle[4][4], int clue[16], int pos);
 
 // Constraints
 int		check_double(int puzzle[4][4], int pos, int num);
-int		check_col_up(int puzzle[4][4], int pos, int clue[16]);
-int		check_col_down(int puzzle[4][4], int pos, int clue[16]);
-int		check_row_left(int puzzle[4][4], int pos, int clue[16]);
-int		check_row_right(int puzzle[4][4], int pos, int clue[16]);
+int		check_top(int puzzle[4][4], int pos, int clue[16]);
+int		check_bottom(int puzzle[4][4], int pos, int clue[16]);
+int		check_left(int puzzle[4][4], int pos, int clue[16]);
+int		check_right(int puzzle[4][4], int pos, int clue[16]);
 
 // Utils
 void	ft_putchar(char c);
