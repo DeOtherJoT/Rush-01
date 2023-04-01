@@ -12,7 +12,6 @@ static int	get_count(char *str)
 		ret++;
 		while (*str && *str != ' ')
 			str++;
-		str++;
 	}
 	return (ret);
 }
