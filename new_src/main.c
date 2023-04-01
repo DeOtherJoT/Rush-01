@@ -12,6 +12,8 @@ void	print_board(t_data *data)
 		ft_putnbr(data->answer[i]);
 		if ((i + 1) % data->edge == 0)
 			write(1, "\n", 1);
+		else
+			write(1, " ", 1);
 		i++;
 	}
 }
@@ -25,10 +27,13 @@ int	main(int argc, char **argv)
 	data = parse_input(argv[1]);
 	if (!data)
 		return (2);
-	// if (solver(data, 0) == FALSE)
-	// 	return (ft_error("No soutions found", 3));
-	// else
-	print_board(data);
+	if (solver(data, 0) == FALSE)
+	{
+		ft_free_data(data);
+		return (ft_error("No soutions found", 3));
+	}
+	else
+		print_board(data);
 	ft_free_data(data);
 	return (0);
 }
