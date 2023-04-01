@@ -10,16 +10,6 @@ size_t	ft_strlen(char *str)
 	return (ret);
 }
 
-void	ft_free_arr(char **arr)
-{
-	int	i;
-
-	i = -1;
-	while (arr[++i])
-		free(arr[i]);
-	free(arr);
-}
-
 int	ft_atoi(char *str)
 {
 	int	neg;

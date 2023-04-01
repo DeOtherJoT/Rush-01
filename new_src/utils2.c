@@ -22,3 +22,13 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb % 10);
 	}
 }
+
+void	ft_free_split(char **arr)
+{
+	int	i;
+
+	i = -1;
+	while (arr[++i])
+		free(arr[i]);
+	free(arr);
+}
