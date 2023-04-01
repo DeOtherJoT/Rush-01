@@ -30,20 +30,27 @@ static int	*init_answer(int edge)
 	int	i;
 
 	ret = malloc(sizeof(int) * (edge * edge));
-	i = 0;
-	while (i < (edge * edge))
+	i = -1;
+	while (++i < (edge * edge))
 		ret[i] = 0;
 	return (ret);
 }
 
-void	ft_free_split(char **arr)
+static int	check_input(t_data *data)
 {
 	int	i;
+	int	total;
 
+	if (data->edge < 4)
+		return (FALSE);
 	i = -1;
-	while (arr[++i])
-		free(arr[i]);
-	free(arr);
+	total = data->edge * 4;
+	while (++i < total)
+	{
+		if (data->clues[i] > data->edge)
+			return (FALSE);
+	}
+	return (TRUE);
 }
 
 t_data	*parse_input(char *clue_str)
@@ -52,22 +59,20 @@ t_data	*parse_input(char *clue_str)
 	int		*clue_arr;
 	char	**ret_split;
 
-	// process input
 	ret_split = ft_split(clue_str);
 	clue_arr = process_clue(ret_split);
-
-	// assign input
+	if (get_arr_len(ret_split) % 4 != 0)
+	{
+		ft_free_split(ret_split);
+		return (NULL);
+	}
 	ret = malloc(sizeof(t_data));
 	ret->clues = clue_arr;
-	printf("%d\n", get_arr_len(ret_split));
-	ret->edge = ft_sqrt(get_arr_len(ret_split));
+	ret->edge = (get_arr_len(ret_split)) / 4;
 	ret->answer = init_answer(ret->edge);
-
-	// if invalid input, free and return
 	ft_free_split(ret_split);
-	if (ret->edge == 0 || ret->edge < 4)
+	if (check_input(ret) == FALSE)
 	{
-		printf("%d\n", ret->edge);
 		ft_error("Invalid input format", -1);
 		ft_free_data(ret);
 		return (NULL);
