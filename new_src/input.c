@@ -47,7 +47,7 @@ static int	check_input(t_data *data)
 	total = data->edge * 4;
 	while (++i < total)
 	{
-		if (data->clues[i] > data->edge)
+		if (data->clues[i] > data->edge || data->clues[i] < 1)
 			return (FALSE);
 	}
 	return (TRUE);
@@ -60,12 +60,12 @@ t_data	*parse_input(char *clue_str)
 	char	**ret_split;
 
 	ret_split = ft_split(clue_str);
-	clue_arr = process_clue(ret_split);
 	if (get_arr_len(ret_split) % 4 != 0)
 	{
 		ft_free_split(ret_split);
 		return (NULL);
 	}
+	clue_arr = process_clue(ret_split);
 	ret = malloc(sizeof(t_data));
 	ret->clues = clue_arr;
 	ret->edge = (get_arr_len(ret_split)) / 4;
