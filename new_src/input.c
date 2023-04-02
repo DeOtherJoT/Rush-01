@@ -73,7 +73,6 @@ t_data	*parse_input(char *clue_str)
 	ft_free_split(ret_split);
 	if (check_input(ret) == FALSE)
 	{
-		ft_error("Invalid input format", -1);
 		ft_free_data(ret);
 		return (NULL);
 	}

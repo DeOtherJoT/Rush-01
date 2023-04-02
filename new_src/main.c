@@ -26,7 +26,10 @@ int	main(int argc, char **argv)
 		return (ft_error("Invalid input", 1));
 	data = parse_input(argv[1]);
 	if (!data)
+	{
+		ft_error("Invalid input format", 2);
 		return (2);
+	}
 	if (solver(data, 0) == FALSE)
 	{
 		ft_free_data(data);
