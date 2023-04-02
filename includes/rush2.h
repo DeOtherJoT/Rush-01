@@ -45,7 +45,6 @@ void	set_cons_data(t_cons *dat, int edge);
 // utils.c
 size_t	ft_strlen(char *str);
 int		ft_atoi(char *str);
-int		ft_sqrt(int nb);
 void	ft_free_data(t_data *data);
 
 // utils2.c
