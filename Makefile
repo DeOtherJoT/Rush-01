@@ -1,34 +1,36 @@
-# MACROS #
+#NAME#
+
+NAME	= rush-01
+
+#MACROS#
 
 GCC		= gcc -Wall -Wextra -Werror
-FSAN	= -fsanitize=address -g
-NAME	= rush-01
-NAME_F	= rush-01.dSYM
+FSAN	= -fsanitizer=address -g3
 RM		= rm -rf
 
-# PATHS AND LIB #
-SRC_DIR	= sources/
-NSC_DIR = new_src/
-INC		= -Iincludes
+#PATHS#
 
-# SOURCE FILES #
-S_SRCS	= $(SRC_DIR)*.c
-N_SRCS	= $(NSC_DIR)*.c
+INC_DIR	= includes
+SRC_DIR	= srcs/
 
+#SOURCE FILES#
 
-# RECIPES #
-all		:
-	$(GCC) $(INC) $(S_SRCS) -o $(NAME)
+SRCS	= $(addprefix $(SRC_DIR), ft_split.c input.c main.c solver.c utils_solver.c utils.c utils2.c)
+
+#RECIPES#
+
+all		:	$(NAME)
+
+$(NAME)	:
+	$(GCC) $(SRCS) -o $(NAME)
 
 fsan	:
-	$(GCC) $(INC) $(S_SRCS) -o $(NAME) $(FSAN)
-
-new		:
-	$(GCC) $(INC) $(N_SRCS) -o $(NAME) $(FSAN)
+	$(GCC) $(SRCS) -o $(NAME) $(FSAN)
 
 clean	:
-	$(RM) $(NAME) $(NAME_F)
+	$(RM) $(NAME) $(NAME).dSYM
 
-re		: clean all
+norm	:
+	norminette $(SRC_DIR)
 
-.PHONY	: all clean re
+.PHONY	: all fsan clean norm
