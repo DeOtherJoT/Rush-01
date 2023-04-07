@@ -1,5 +1,9 @@
 #include "../includes/rush2.h"
 
+/**
+ * @brief	Prints the answer board in the t_data struct
+*/
+
 void	print_board(t_data *data)
 {
 	int	i;
@@ -17,6 +21,16 @@ void	print_board(t_data *data)
 		i++;
 	}
 }
+
+/**
+ * @brief	Driver function. Program flow is as follows:
+ * 			  1. Check if the number of arguments is correct.
+ * 			  2. Initialise the t_Data struct which will contain the clue
+ * 				 array and answer board, as well as the size of the board.
+ *			  3. Start solver using backtracking algorithm.
+ *			  4. If a solution is found, print it. Else, return error message.
+ *			  5. Free malloc'd memory.
+*/
 
 int	main(int argc, char **argv)
 {

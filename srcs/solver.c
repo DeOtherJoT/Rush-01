@@ -1,5 +1,11 @@
 #include "../includes/rush2.h"
 
+/**
+ * @brief	Checks the answer board for duplicate values.
+ * 
+ * @return	0 or 1, expanded from FALSE or TRUE respectively.
+*/
+
 int	check_double(int *ans, int edge, int place)
 {
 	int	curr_val;
@@ -20,6 +26,13 @@ int	check_double(int *ans, int edge, int place)
 	}
 	return (TRUE);
 }
+
+/**
+ * @brief	Check the validity of the value at a certain place using the clues
+ * 			given at the top and bottom edge.
+ * 
+ * @return	0 or 1, expanded from FALSE or TRUE respectively.
+*/
 
 int	check_top_bottom(int *ans, int *clue, int edge, int place)
 {
@@ -48,6 +61,13 @@ int	check_top_bottom(int *ans, int *clue, int edge, int place)
 		return (FALSE);
 	return (TRUE);
 }
+
+/**
+ * @brief	Check the validity of the value at a certain place using the clues
+ * 			given at the left and right edge.
+ * 
+ * @return	0 or 1, expanded from FALSE or TRUE respectively.
+*/
 
 int	check_left_right(int *ans, int *clue, int edge, int place)
 {
@@ -81,10 +101,10 @@ int	check_left_right(int *ans, int *clue, int edge, int place)
  * @brief	Checks if the value at a certain place fits within the constraints
  * 			which are no repetitions and with respect to the edge clues.
  * 
- * @param ans 
- * @param clue 
- * @param edge 
- * @param place 
+ * @param ans	The answer baord, represented as an integer array.
+ * @param clue	The input clues, represented as an integer array.
+ * @param edge	The length of the answer board.
+ * @param place	The current position of the inserted value.
  * @return int 
  */
 
@@ -108,7 +128,7 @@ int	constraint_check(int *ans, int *clue, int edge, int place)
 
 /**
  * @brief	Backtracking algorithm to solve the skyscrapers puzzle.
- * 			Target to solve 7x7 in a reasonable time.
+ * 			Target to solve 6x6 in a reasonable time.
  * 
  * @param data		the struct that holds all necessary data
  * @param place 	the current place in the board where the possible

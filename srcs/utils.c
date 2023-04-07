@@ -1,5 +1,11 @@
 #include "../includes/rush2.h"
 
+/**
+ * @brief	Basic strlen function
+ * 
+ * @return	The length of the string passed as the parameter
+*/
+
 size_t	ft_strlen(char *str)
 {
 	size_t ret;
@@ -9,6 +15,12 @@ size_t	ft_strlen(char *str)
 		ret++;
 	return (ret);
 }
+
+/**
+ * @brief	Basic atoi function
+ * 
+ * @return	The int represented by the string parameter
+*/
 
 int	ft_atoi(char *str)
 {
@@ -34,6 +46,10 @@ int	ft_atoi(char *str)
 	}
 	return (res * neg);
 }
+
+/**
+ * @brief	Frees the malloc'd t_data struct
+*/
 
 void	ft_free_data(t_data *data)
 {

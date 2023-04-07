@@ -1,5 +1,9 @@
 #include "../includes/rush2.h"
 
+/**
+ * @brief	Takes an array of strings and returns the size of the array.
+*/
+
 static int	get_arr_len(char **arr)
 {
 	int	ret;
@@ -9,6 +13,14 @@ static int	get_arr_len(char **arr)
 		ret++;
 	return (ret);
 }
+
+/**
+ * @brief	Initialises an int array based on the array of numbers as
+ * 			strings.
+ * 
+ * @returns	An integer array, representing the clues given as the program's
+ * 			input.
+*/
 
 static int	*process_clue(char **arr)
 {
@@ -24,6 +36,14 @@ static int	*process_clue(char **arr)
 	return (ret);
 }
 
+/**
+ * @brief	Initialises an int array of length (edge * edge).
+ * 			This can be interpreted as a 2D integer array, with clever
+ * 			maths using the operations / and % with the value of edge.
+ * 
+ * @returns An integer array, representing the answer board.
+*/
+
 static int	*init_answer(int edge)
 {
 	int	*ret;
@@ -35,6 +55,14 @@ static int	*init_answer(int edge)
 		ret[i] = 0;
 	return (ret);
 }
+
+/**
+ * @brief	Checks the int clue array for invalid numbers, either:
+ * 			  A) Lesser than 1.
+ * 			  B) More than the edge of the board.
+ *
+ * @returns	Either 0 or 1, expanded from FALSE or TRUE respectively.
+*/
 
 static int	check_input(t_data *data)
 {
@@ -52,6 +80,14 @@ static int	check_input(t_data *data)
 	}
 	return (TRUE);
 }
+
+/**
+ * @brief	Parses the clue input string into an int array, and if no
+ * 			problems are found, initialise the answer board and find
+ * 			out the edge of the board (how many ints along one edge)
+ * 
+ * @returns	Returns a pointer to a malloc'd t_data struct.
+*/
 
 t_data	*parse_input(char *clue_str)
 {
