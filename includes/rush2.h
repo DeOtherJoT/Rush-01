@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush2.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/25 12:46:59 by jthor             #+#    #+#             */
+/*   Updated: 2023/09/25 12:47:01 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RUSH2_H
 # define RUSH2_H
 
@@ -8,22 +20,22 @@
 # define FALSE 0
 # define TRUE 1
 
-typedef struct	s_data
+typedef struct s_data
 {
 	int	*answer;
 	int	*clues;
 	int	edge;
 }	t_data;
 
-typedef struct	s_cons
+typedef struct s_cons
 {
 	int	ctr1;
 	int	ctr2;
 	int	visible_1;
 	int	visible_2;
-	int max1;
+	int	max1;
 	int	max2;
-	int pos_max;
+	int	pos_max;
 }	t_cons;
 
 // ft_split.c

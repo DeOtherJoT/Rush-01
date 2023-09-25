@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jthor <jthor@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/25 12:47:48 by jthor             #+#    #+#             */
+/*   Updated: 2023/09/25 12:47:51 by jthor            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rush2.h"
 
 /**
@@ -56,8 +68,8 @@ int	check_top_bottom(int *ans, int *clue, int edge, int place)
 			dat.visible_2++;
 		}
 	}
-	if (dat.visible_1 != clue[place % edge] ||
-		dat.visible_2 != clue[edge + (place % edge)])
+	if (dat.visible_1 != clue[place % edge]
+		|| dat.visible_2 != clue[edge + (place % edge)])
 		return (FALSE);
 	return (TRUE);
 }
@@ -91,8 +103,8 @@ int	check_left_right(int *ans, int *clue, int edge, int place)
 			dat.visible_2++;
 		}
 	}
-	if (dat.visible_1 != clue[(edge * 2) + (place / edge)] ||
-		dat.visible_2 != clue[(edge * 3) + (place / edge)])
+	if (dat.visible_1 != clue[(edge * 2) + (place / edge)]
+		|| dat.visible_2 != clue[(edge * 3) + (place / edge)])
 		return (FALSE);
 	return (TRUE);
 }
@@ -123,7 +135,6 @@ int	constraint_check(int *ans, int *clue, int edge, int place)
 			return (FALSE);
 	}
 	return (TRUE);
-
 }
 
 int	solver(t_data *data, int place)
