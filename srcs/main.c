@@ -3,7 +3,6 @@
 /**
  * @brief	Prints the answer board in the t_data struct
 */
-
 void	print_board(t_data *data)
 {
 	int	i;

@@ -126,17 +126,6 @@ int	constraint_check(int *ans, int *clue, int edge, int place)
 
 }
 
-/**
- * @brief	Backtracking algorithm to solve the skyscrapers puzzle.
- * 			Target to solve 6x6 in a reasonable time.
- * 
- * @param data		the struct that holds all necessary data
- * @param place 	the current place in the board where the possible
- * 					values are being placed.
- * @return int 	Return TRUE if answer is found, FALSE if no answer is found
- * 				that fulfills the constraints at the current location.
- */
-
 int	solver(t_data *data, int place)
 {
 	int	value;

@@ -81,14 +81,6 @@ static int	check_input(t_data *data)
 	return (TRUE);
 }
 
-/**
- * @brief	Parses the clue input string into an int array, and if no
- * 			problems are found, initialise the answer board and find
- * 			out the edge of the board (how many ints along one edge)
- * 
- * @returns	Returns a pointer to a malloc'd t_data struct.
-*/
-
 t_data	*parse_input(char *clue_str)
 {
 	t_data	*ret;

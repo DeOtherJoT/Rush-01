@@ -33,12 +33,6 @@ static char	*get_word(char *str)
 	return (ret);
 }
 
-/**
- * @brief	Basic split function, with spaces, ' ', as delimiters.
- * 
- * @returns	An array of strings.
-*/
-
 char	**ft_split(char *str)
 {
 	char	**ret;
