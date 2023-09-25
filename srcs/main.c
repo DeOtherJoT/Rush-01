@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	t_data	*data;
 
 	if (argc != 2)
-		return (ft_error("Invalid input", 1));
+		return (ft_error("Usage: ./rush-01 <clue string>", 1));
 	data = parse_input(argv[1]);
 	if (!data)
 	{
