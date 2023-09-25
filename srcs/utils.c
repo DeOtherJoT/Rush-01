@@ -18,7 +18,7 @@
  * @return	The length of the string passed as the parameter
 */
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	ret;
 
@@ -51,6 +51,8 @@ int	ft_atoi(char *str)
 	res = 0;
 	while (*str)
 	{
+		if (*str == '\n')
+			break ;
 		if (*str < '0' || *str > '9')
 			return (0);
 		res = res * 10 + (*str - '0');

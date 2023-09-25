@@ -16,9 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <fcntl.h>
 
 # define FALSE 0
 # define TRUE 1
+# define BUFFER_SIZE 25
 
 typedef struct s_data
 {
@@ -60,6 +62,7 @@ char	**ft_split(char *str);
 t_data	*parse_input(char *clue_str);
 
 // solver.c
+int	constraint_check(int *ans, int *clue, int edge, int place);
 /**
  * @brief	Backtracking algorithm to solve the skyscrapers puzzle.
  * 			Target to solve 6x6 in a reasonable time.
@@ -98,7 +101,7 @@ void	set_cons_data(t_cons *dat, int edge);
 /**
  * @brief Returns the length of a string passed as the parameter.
  */
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 /**
  * @brief Converts the string passed as the parameter to its integer
  * equivalent.
@@ -128,4 +131,16 @@ void	ft_putnbr(int nb);
  */
 void	ft_free_split(char **arr);
 
+// get_next_line
+/**
+ * @brief Iterates through the fd and returns the next line.
+ */
+char	*get_next_line(int fd);
+void	*ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+char	*ft_strdup(const char *s1);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
 #endif
